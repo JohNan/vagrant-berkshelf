@@ -59,13 +59,13 @@ module VagrantPlugins
 
         final_command = [berks_bin, command, *args]
 
-        Bundler.with_clean_env do
+        #Bundler.with_clean_env do
           r = Subprocess.execute(*final_command)
           if r.exit_code != 0
             raise BerksCommandFailed.new(final_command.join(' '), r.stdout, r.stderr)
           end
           r
-        end
+        #end
       end
 
       # The path to the Berkshelf binary on disk.
